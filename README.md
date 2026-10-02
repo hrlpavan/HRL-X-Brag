@@ -1,20 +1,21 @@
-# /brag
+# HRL X Brag
 
-**You built it. Now brag.**
+**Autonomous GitHub README to Launch Video & Social Media Studio**
 
-> **Want a video without running `/brag` yourself?** Paste your site's link at [letsbrag.app](https://letsbrag.app).
+> 🚀 **Live Web Console:** Open [**hrlpavan.github.io/HRL-X-Brag**](https://hrlpavan.github.io/HRL-X-Brag/) to paste any GitHub README link and generate downloadable launch videos with ready-to-post social media copy in seconds!
 
-[![the /brag launch site — you built it, now brag](docs/assets/hero.png)](https://latent-spaces.github.io/brag/)
+---
 
-`/brag` is an agent skill that turns the project you created into a short, shareable launch video — music, motion, and share copy included. One command, powered by [Hyperframes](https://hyperframes.heygen.com/).
+## ⚡ Web Console Studio Features
 
-The looping video on the [launch site](https://latent-spaces.github.io/brag/) was made by `/brag` on this very repo. 
+Whenever you need a video explanation for your repository or any GitHub project:
+1. **Provide GitHub Link:** Enter any repository URL (e.g. `https://github.com/hrlpavan/HRL-X-Brag`) or raw README link.
+2. **Autonomous Analysis:** The engine extracts value propositions, problem/solution hooks, key features, and tech stacks.
+3. **In-Browser Video Generation:** Renders 60 FPS animated scenes (9:16 vertical for Reels/Shorts or 16:9 for X/LinkedIn) with procedural audio.
+4. **Instant Download:** Export directly as `.webm` / `.mp4` video with one click.
+5. **Ready-to-Post Social Media Kit:** Pre-formatted announcement copy for 𝕏 / Twitter, LinkedIn, and Instagram Reels / TikTok.
 
-## Rather not run it yourself? Use letsbrag.app
-
-[letsbrag.app](https://letsbrag.app) runs `/brag` for you. Paste your site's link and get a 20-second launch video with music, motion, and share copy. No setup, no subscription.
-
-The skill stays free and open source. Install it below and run it yourself anytime.
+---
 
 ## New: `/brag-slim`
 

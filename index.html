@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRL X Brag — Launch Video Studio & Console</title>
+  <meta name="description" content="Turn any GitHub README or repository into a high-impact launch video and social media announcement package with one click.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090c;
+      --card-bg: rgba(18, 18, 23, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f4f4f6;
+      --text-muted: #8e8e9f;
+      --primary: #f59e0b;
+      --primary-hover: #d97706;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --success: #10b981;
+      --danger: #ef4444;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.12), transparent),
+        radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 40%),
+        radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.08), transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #000;
+      box-shadow: 0 0 24px rgba(245, 158, 11, 0.3);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #fff, #d4d4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+
+    .header-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .header-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .header-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--card-border);
+    }
+
+    /* Main Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Card Panels */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Input Controls */
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e4e4e7;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-text {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #fff;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .input-text:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    .input-textarea {
+      width: 100%;
+      height: 120px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #e4e4e7;
+      resize: vertical;
+      outline: none;
+    }
+
+    .input-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #ea580c);
+      color: #000;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-success:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    /* Preset Pills */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pill-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Config Grid */
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .select-custom {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .select-custom:focus {
+      border-color: var(--primary);
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      border: 1px solid var(--card-border);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    /* Storyboard Preview Cards */
+    .storyboard-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .scene-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .scene-num {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 7px;
+      white-space: nowrap;
+    }
+
+    .scene-content {
+      flex: 1;
+    }
+
+    .scene-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .scene-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Video Player Area */
+    .video-viewport-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      margin-bottom: 20px;
+      min-height: 480px;
+    }
+
+    canvas#renderCanvas {
+      display: none;
+    }
+
+    video#outputVideo {
+      width: 100%;
+      max-height: 520px;
+      background: #000;
+      border-radius: var(--radius-md);
+      outline: none;
+      display: block;
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    .placeholder-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+
+    /* Progress Overlay */
+    .rendering-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9, 9, 12, 0.9);
+      backdrop-filter: blur(8px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .rendering-overlay.active {
+      display: flex;
+    }
+
+    .render-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(245, 158, 11, 0.2);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-bar-container {
+      width: 80%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 16px 0 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+      border-radius: 999px;
+      transition: width 0.15s ease-out;
+    }
+
+    /* Social Kit */
+    .social-preview {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-size: 13px;
+      color: #d4d4d8;
+      white-space: pre-wrap;
+      font-family: inherit;
+      max-height: 240px;
+      overflow-y: auto;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .copy-success-toast {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .copy-success-toast.show {
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">HRL</div>
+        <div>
+          <div class="brand-title">HRL X Brag — Launch Video Studio</div>
+          <div class="brand-subtitle">
+            Autonomous GitHub README to Launch Video & Social Media Engine
+            <span class="status-badge"><span class="status-dot"></span> Online</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-links">
+        <a class="header-link" href="https://github.com/hrlpavan/HRL-X-Brag" target="_blank" rel="noopener">GitHub Repository ↗</a>
+        <a class="header-link" href="https://github.com/hrlpavan/HRL-X-Brag#readme" target="_blank" rel="noopener">Documentation</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left Column: Input & Storyboard -->
+      <div>
+        <!-- Source Input Card -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>🎯</span> Source Repository or README
+            </h2>
+            <p class="card-desc">Paste any GitHub repo URL or raw README link. The engine extracts key value props, highlights, and specs.</p>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" id="tabUrl" onclick="switchInputTab('url')">GitHub URL</button>
+            <button class="tab-btn" id="tabRaw" onclick="switchInputTab('raw')">Paste Raw Markdown</button>
+          </div>
+
+          <div id="urlInputContainer">
+            <div class="input-group">
+              <label class="input-label" for="repoUrlInput">GitHub Repository or README URL</label>
+              <div class="input-row">
+                <input 
+                  type="text" 
+                  id="repoUrlInput" 
+                  class="input-text" 
+                  placeholder="https://github.com/hrlpavan/HRL-X-Brag" 
+                  value="https://github.com/hrlpavan/HRL-X-Brag"
+                />
+                <button class="btn btn-primary" id="fetchBtn" onclick="analyzeSource()">
+                  Analyze & Plan
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted);">Quick try from your ecosystem:</span>
+              <div class="pill-group">
+                <button class="pill-btn" onclick="setAndAnalyze('https://github.com/hrlpavan/HRL-X-Brag')">HRL-X-Brag</button>
+                <button class="pill-btn" onclick="setAndAnalyze('https://github.com/hrlpavan/hrl-v12-engine')">HRL-V12-Engine</button>
+                <button class="pill-btn" onclick="setAndAnalyze('https://github.com/hrlpavan/HRL-X-FAQ')">HRL-X-FAQ</button>
+                <button class="pill-btn" onclick="setAndAnalyze('https://github.com/latent-spaces/brag')">latent-spaces/brag</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="rawInputContainer" style="display: none;">
+            <div class="input-group">
+              <label class="input-label" for="rawMarkdownInput">Paste Markdown Text</label>
+              <textarea id="rawMarkdownInput" class="input-textarea" placeholder="# My Project Name&#10;&#10;Tagline or problem statement...&#10;&#10;## Features&#10;- Feature 1&#10;- Feature 2"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="analyzeRawMarkdown()">Parse Markdown</button>
+          </div>
+        </div>
+
+        <!-- Video Settings Card -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>⚙️</span> Video & Output Settings
+            </h2>
+            <p class="card-desc">Configure resolution format, aesthetic style, soundtrack and pacing.</p>
+          </div>
+
+          <div class="config-grid">
+            <div>
+              <label class="input-label">Aspect Ratio / Format</label>
+              <select id="aspectRatioSelect" class="select-custom" onchange="updateAspectDimensions()">
+                <option value="9:16">📱 9:16 Vertical (Reels / TikTok / Shorts)</option>
+                <option value="16:9">💻 16:9 Landscape (X / LinkedIn / YouTube)</option>
+              </select>
+            </div>
+            <div>
+              <label class="input-label">Aesthetic Theme</label>
+              <select id="themeSelect" class="select-custom">
+                <option value="obsidian">HRL Obsidian & Gold (Executive)</option>
+                <option value="cyber">Cyber Neon (Cyan & Violet)</option>
+                <option value="minimal">Minimalist Titanium (Clean Tech)</option>
+                <option value="crimson">Crimson Voltage (High Energy)</option>
+              </select>
+            </div>
+            <div>
+              <label class="input-label">Pacing & Duration</label>
+              <select id="durationSelect" class="select-custom">
+                <option value="15">⚡ 15 Seconds (Fast Hook / High Retention)</option>
+                <option value="20" selected>🎬 20 Seconds (Standard Launch Showcase)</option>
+                <option value="30">🚀 30 Seconds (In-Depth Technical Story)</option>
+              </select>
+            </div>
+            <div>
+              <label class="input-label">Soundtrack</label>
+              <select id="audioSelect" class="select-custom">
+                <option value="synth">Procedural Tech Synth (120 BPM)</option>
+                <option value="mute">Mute / No Audio</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 15px;" onclick="startVideoGeneration()">
+            🎬 Generate & Record Launch Video
+          </button>
+        </div>
+
+        <!-- Storyboard Inspection Card -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>📋</span> Storyboard & Scene Breakdown
+            </h2>
+            <p class="card-desc">The dynamic 5-act structure calculated from your repository.</p>
+          </div>
+
+          <div class="storyboard-list" id="storyboardList">
+            <div class="scene-item">
+              <span class="scene-num">Scene 1</span>
+              <div class="scene-content">
+                <div class="scene-title">The Problem / Hook</div>
+                <div class="scene-body" id="sbHook">Attention-grabbing problem statement.</div>
+              </div>
+            </div>
+            <div class="scene-item">
+              <span class="scene-num">Scene 2</span>
+              <div class="scene-content">
+                <div class="scene-title">Product Reveal</div>
+                <div class="scene-body" id="sbTitle">Project name, badge, and primary value prop.</div>
+              </div>
+            </div>
+            <div class="scene-item">
+              <span class="scene-num">Scene 3</span>
+              <div class="scene-content">
+                <div class="scene-title">Key Capabilities</div>
+                <div class="scene-body" id="sbFeatures">Top 3-4 feature highlights animated with kinetic counters.</div>
+              </div>
+            </div>
+            <div class="scene-item">
+              <span class="scene-num">Scene 4</span>
+              <div class="scene-content">
+                <div class="scene-title">Tech Stack & Architecture</div>
+                <div class="scene-body" id="sbTech">Foundational technologies and architecture framework.</div>
+              </div>
+            </div>
+            <div class="scene-item">
+              <span class="scene-num">Scene 5</span>
+              <div class="scene-content">
+                <div class="scene-title">Call to Action</div>
+                <div class="scene-body" id="sbCta">GitHub link, Star request, and deployment notice.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Video Viewport & Social Media Kit -->
+      <div>
+        <!-- Video Player Card -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h2 class="card-title">
+                <span>📹</span> Launch Video Preview
+              </h2>
+              <p class="card-desc">Play, inspect, and download the finished video file.</p>
+            </div>
+            <span id="aspectPill" class="pill-btn" style="pointer-events: none; border-color: var(--primary); color: var(--primary);">9:16 Vertical</span>
+          </div>
+
+          <div class="video-viewport-wrapper" id="viewportWrapper">
+            <canvas id="renderCanvas" width="1080" height="1920"></canvas>
+            
+            <div id="videoPlaceholder" class="video-placeholder">
+              <div class="placeholder-icon">🎬</div>
+              <h3 style="color: #fff; font-size: 16px; margin-bottom: 6px;">No Video Generated Yet</h3>
+              <p style="font-size: 13px; max-width: 320px;">
+                Enter a repository URL on the left and click <strong>"Generate & Record Launch Video"</strong>.
+              </p>
+            </div>
+
+            <video id="outputVideo" controls style="display: none;"></video>
+
+            <!-- Progress Overlay -->
+            <div class="rendering-overlay" id="renderOverlay">
+              <div class="render-spinner"></div>
+              <h3 style="color: #fff; font-size: 18px; font-weight: 700;" id="renderStatusText">Recording Launch Video...</h3>
+              <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;" id="renderSubText">Rendering frames & procedural audio at 60 FPS</p>
+              <div class="progress-bar-container">
+                <div class="progress-fill" id="renderProgressFill"></div>
+              </div>
+              <span style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;" id="renderPercentText">0%</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-success" id="downloadVideoBtn" style="flex: 1;" disabled onclick="downloadGeneratedVideo()">
+              ⬇️ Download Launch Video
+            </button>
+            <button class="btn btn-secondary" id="replayBtn" style="display: none;" onclick="replayVideo()">
+              🔁 Replay
+            </button>
+          </div>
+        </div>
+
+        <!-- Social Media Kit Card -->
+        <div class="card">
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h2 class="card-title">
+                <span>📢</span> Ready-to-Post Social Media Kit
+              </h2>
+              <p class="card-desc">Auto-generated captions formatted for instant launch publishing.</p>
+            </div>
+            <span class="copy-success-toast" id="copyToast">✓ Copied to clipboard!</span>
+          </div>
+
+          <div class="tabs">
+            <button class="tab-btn active" id="tabX" onclick="switchSocialTab('x')">𝕏 / Twitter</button>
+            <button class="tab-btn" id="tabLinkedIn" onclick="switchSocialTab('linkedin')">LinkedIn (Executive)</button>
+            <button class="tab-btn" id="tabReels" onclick="switchSocialTab('reels')">Instagram / TikTok</button>
+          </div>
+
+          <div class="social-preview" id="socialPostContent">
+            Analyzing repository to craft social announcement...
+          </div>
+
+          <button class="btn btn-secondary" style="width: 100%;" onclick="copyCurrentSocialPost()">
+            📋 Copy Post to Clipboard
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        <strong>HRL X Brag</strong> — Developed by <strong>Pavan Kumar Sadashiv</strong> (<a href="https://github.com/hrlpavan" target="_blank" rel="noopener">@hrlpavan</a>).
+        Powered by Antigravity and HTML5 Canvas Video Synthesis. Open Source & MIT Licensed.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // State
+    const state = {
+      project: {
+        name: "HRL-X-Brag",
+        tagline: "Turn any project into a short, polished, shareable launch video in seconds.",
+        hook: "You built something incredible. But how will the world notice?",
+        features: [
+          "Instant README to Video AI storyboard pipeline",
+          "Procedural 60 FPS motion graphics with no dependencies",
+          "Social media kit ready to post for X, LinkedIn & Reels",
+          "Direct browser MP4/WebM download with audio"
+        ],
+        tech: ["Antigravity", "JavaScript", "Canvas 2D", "Web Audio API", "MediaRecorder"],
+        cta: "Star and fork on GitHub: github.com/hrlpavan/HRL-X-Brag",
+        url: "https://github.com/hrlpavan/HRL-X-Brag"
+      },
+      aspect: "9:16",
+      theme: "obsidian",
+      duration: 20,
+      audio: "synth",
+      recordedBlob: null,
+      recordedUrl: null,
+      activeSocialTab: "x"
+    };
+
+    // Color themes
+    const themes = {
+      obsidian: {
+        bg: "#070709",
+        cardBg: "rgba(22, 22, 28, 0.85)",
+        primary: "#f59e0b",
+        secondary: "#fbbf24",
+        accent: "#06b6d4",
+        text: "#ffffff",
+        textMuted: "#a1a1aa",
+        glow: "rgba(245, 158, 11, 0.4)"
+      },
+      cyber: {
+        bg: "#050814",
+        cardBg: "rgba(10, 16, 38, 0.85)",
+        primary: "#06b6d4",
+        secondary: "#ec4899",
+        accent: "#8b5cf6",
+        text: "#ffffff",
+        textMuted: "#94a3b8",
+        glow: "rgba(6, 182, 212, 0.45)"
+      },
+      minimal: {
+        bg: "#0f172a",
+        cardBg: "rgba(30, 41, 59, 0.85)",
+        primary: "#38bdf8",
+        secondary: "#818cf8",
+        accent: "#10b981",
+        text: "#ffffff",
+        textMuted: "#cbd5e1",
+        glow: "rgba(56, 189, 248, 0.35)"
+      },
+      crimson: {
+        bg: "#0c0608",
+        cardBg: "rgba(28, 14, 18, 0.85)",
+        primary: "#ef4444",
+        secondary: "#f97316",
+        accent: "#ec4899",
+        text: "#ffffff",
+        textMuted: "#d4d4d8",
+        glow: "rgba(239, 68, 68, 0.4)"
+      }
+    };
+
+    // Tab Switching
+    function switchInputTab(tab) {
+      document.getElementById('tabUrl').classList.toggle('active', tab === 'url');
+      document.getElementById('tabRaw').classList.toggle('active', tab === 'raw');
+      document.getElementById('urlInputContainer').style.display = tab === 'url' ? 'block' : 'none';
+      document.getElementById('rawInputContainer').style.display = tab === 'raw' ? 'block' : 'none';
+    }
+
+    function switchSocialTab(tab) {
+      state.activeSocialTab = tab;
+      document.getElementById('tabX').classList.toggle('active', tab === 'x');
+      document.getElementById('tabLinkedIn').classList.toggle('active', tab === 'linkedin');
+      document.getElementById('tabReels').classList.toggle('active', tab === 'reels');
+      renderSocialPost();
+    }
+
+    function updateAspectDimensions() {
+      const select = document.getElementById('aspectRatioSelect');
+      state.aspect = select.value;
+      const pill = document.getElementById('aspectPill');
+      const canvas = document.getElementById('renderCanvas');
+      if (state.aspect === '9:16') {
+        pill.innerText = "9:16 Vertical";
+        canvas.width = 1080;
+        canvas.height = 1920;
+      } else {
+        pill.innerText = "16:9 Landscape";
+        canvas.width = 1920;
+        canvas.height = 1080;
+      }
+    }
+
+    function setAndAnalyze(url) {
+      document.getElementById('repoUrlInput').value = url;
+      analyzeSource();
+    }
+
+    // Markdown / Repo Parser
+    async function analyzeSource() {
+      const urlInput = document.getElementById('repoUrlInput').value.trim();
+      if (!urlInput) return;
+
+      const fetchBtn = document.getElementById('fetchBtn');
+      fetchBtn.disabled = true;
+      fetchBtn.innerText = "Analyzing...";
+
+      try {
+        let markdownText = "";
+        state.project.url = urlInput;
+
+        // Extract owner and repo
+        const ghMatch = urlInput.match(/github\.com\/([^/]+)\/([^/]+)/);
+        if (ghMatch) {
+          const owner = ghMatch[1];
+          const repo = ghMatch[2].replace(/\.git$/, '');
+          state.project.name = repo;
+
+          // Try raw.githubusercontent.com
+          const rawUrlMain = `https://raw.githubusercontent.com/${owner}/${repo}/main/README.md`;
+          const rawUrlMaster = `https://raw.githubusercontent.com/${owner}/${repo}/master/README.md`;
+
+          try {
+            let res = await fetch(rawUrlMain);
+            if (!res.ok) res = await fetch(rawUrlMaster);
+            if (res.ok) {
+              markdownText = await res.text();
+            }
+          } catch (e) {
+            console.warn("Direct raw fetch blocked, fallback to API or mock parser", e);
+          }
+        }
+
+        if (markdownText) {
+          parseMarkdownContent(markdownText);
+        } else {
+          // Fallback parsing from repo name
+          parseFromRepoName(state.project.name);
+        }
+
+        updateUIFromState();
+      } catch (err) {
+        console.error("Analysis error:", err);
+      } finally {
+        fetchBtn.disabled = false;
+        fetchBtn.innerText = "Analyze & Plan";
+      }
+    }
+
+    function analyzeRawMarkdown() {
+      const text = document.getElementById('rawMarkdownInput').value.trim();
+      if (!text) return;
+      parseMarkdownContent(text);
+      updateUIFromState();
+    }
+
+    function parseMarkdownContent(md) {
+      const lines = md.split('\n');
+      let title = "";
+      let tagline = "";
+      let hook = "";
+      const features = [];
+      const techList = [];
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        // Extract title
+        if (!title && line.startsWith('# ')) {
+          title = line.replace(/^#\s*/, '').replace(/[/\\#]/g, '').trim();
+          continue;
+        }
+        // Extract tagline/hook
+        if (title && !tagline && line && !line.startsWith('#') && !line.startsWith('![')) {
+          tagline = line.replace(/^\*\*|\*\*$/g, '').replace(/^>+\s*/, '').trim();
+          continue;
+        }
+        // Extract bullet features
+        if ((line.startsWith('- ') || line.startsWith('* ')) && features.length < 4) {
+          const feat = line.replace(/^[-*]\s*/, '').replace(/\*\*/g, '').trim();
+          if (feat.length > 10 && !feat.includes('http')) {
+            features.push(feat);
+          }
+        }
+        // Extract tech words
+        const techMatch = line.match(/(Python|JavaScript|TypeScript|React|Next\.js|Node\.js|FFmpeg|WebGL|Antigravity|PyTorch|TensorFlow|Canvas|Rust|Go|Docker|Kubernetes)/gi);
+        if (techMatch) {
+          techMatch.forEach(t => {
+            if (!techList.includes(t) && techList.length < 5) techList.push(t);
+          });
+        }
+      }
+
+      if (title) state.project.name = title;
+      if (tagline) state.project.tagline = tagline;
+      state.project.hook = `Tired of slow launches? Meet ${state.project.name}.`;
+      if (features.length >= 2) state.project.features = features;
+      if (techList.length >= 2) state.project.tech = techList;
+    }
+
+    function parseFromRepoName(name) {
+      state.project.name = name;
+      state.project.tagline = `High-performance intelligent engineering for modern agentic workflows.`;
+      state.project.hook = `Deploy faster with ${name}: Built to scale effortlessly.`;
+      state.project.features = [
+        "Autonomous pipeline execution & deployment",
+        "Deterministic low-latency architecture",
+        "Enterprise-ready integration and telemetry",
+        "Seamless cloud and desktop compatibility"
+      ];
+      state.project.tech = ["Antigravity", "JavaScript", "Python", "Cloud Systems"];
+    }
+
+    function updateUIFromState() {
+      document.getElementById('sbHook').innerText = state.project.hook;
+      document.getElementById('sbTitle').innerText = `${state.project.name} — ${state.project.tagline}`;
+      document.getElementById('sbFeatures').innerText = state.project.features.slice(0, 3).join(' • ');
+      document.getElementById('sbTech').innerText = state.project.tech.join(', ');
+      document.getElementById('sbCta').innerText = state.project.cta;
+      renderSocialPost();
+    }
+
+    // Social Media Kit Generator
+    function renderSocialPost() {
+      const p = state.project;
+      const box = document.getElementById('socialPostContent');
+      let text = "";
+
+      if (state.activeSocialTab === 'x') {
+        text = `🚀 Introducing ${p.name}!\n\n${p.tagline}\n\nKey highlights:\n${p.features.slice(0, 3).map(f => `✨ ${f}`).join('\n')}\n\n🔗 Check it out: ${p.url}\n\n#DevCommunity #OpenSource #AI #BuildInPublic`;
+      } else if (state.activeSocialTab === 'linkedin') {
+        text = `Excited to announce the official release of ${p.name}.\n\n${p.hook}\n\n${p.tagline}\n\n📌 Architectural Highlights:\n${p.features.map(f => `• ${f}`).join('\n')}\n\n🛠️ Built with: ${p.tech.join(' | ')}\n\nExplore the open-source repository and documentation on GitHub:\n${p.url}\n\n#Engineering #SoftwareArchitecture #OpenSource #Innovation #TechLeadership`;
+      } else if (state.activeSocialTab === 'reels') {
+        text = `Stop scrolling! 👀 We just launched ${p.name} 🚀\n\n${p.tagline}\n\n${p.features.slice(0, 2).map(f => `⚡ ${f}`).join('\n')}\n\nLink in bio / GitHub: ${p.url}\n\n#reels #coding #developer #tech #buildinpublic`;
+      }
+
+      box.innerText = text;
+    }
+
+    function copyCurrentSocialPost() {
+      const text = document.getElementById('socialPostContent').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    }
+
+    // Procedural Audio Synthesizer
+    class ProceduralAudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.dest = null;
+        this.interval = null;
+      }
+
+      start(bpm = 124) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioContext();
+        this.dest = this.ctx.createMediaStreamDestination();
+
+        let step = 0;
+        const stepTime = (60 / bpm) / 4; // 16th notes
+        const chords = [
+          [220, 261.63, 329.63], // Am
+          [174.61, 220, 261.63], // F
+          [196, 246.94, 293.66], // G
+          [164.81, 207.65, 246.94] // Em
+        ];
+
+        this.interval = setInterval(() => {
+          if (!this.ctx || this.ctx.state === 'closed') return;
+          const time = this.ctx.currentTime;
+          const currentChord = chords[Math.floor((step / 16) % chords.length)];
+
+          // Kick on 1, 5, 9, 13
+          if (step % 4 === 0) {
+            this.playKick(time);
+          }
+
+          // Hi-hat on offbeats
+          if (step % 2 === 1) {
+            this.playHiHat(time);
+          }
+
+          // Arpeggiated lead
+          const noteFreq = currentChord[step % currentChord.length];
+          this.playLead(time, noteFreq);
+
+          step++;
+        }, stepTime * 1000);
+      }
+
+      playKick(time) {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.connect(gain);
+        gain.connect(this.dest);
+
+        osc.frequency.setValueAtTime(150, time);
+        osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.3);
+        gain.gain.setValueAtTime(0.8, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+
+        osc.start(time);
+        osc.stop(time + 0.3);
+      }
+
+      playHiHat(time) {
+        const bufferSize = this.ctx.sampleRate * 0.05;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'highpass';
+        filter.frequency.value = 8000;
+
+        const gain = this.ctx.createGain();
+        gain.gain.setValueAtTime(0.15, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.04);
+
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.dest);
+
+        noise.start(time);
+      }
+
+      playLead(time, freq) {
+        const osc = this.ctx.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, time);
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(1200, time);
+
+        const gain = this.ctx.createGain();
+        gain.gain.setValueAtTime(0.12, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.15);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.dest);
+
+        osc.start(time);
+        osc.stop(time + 0.15);
+      }
+
+      stop() {
+        if (this.interval) clearInterval(this.interval);
+        if (this.ctx) {
+          try { this.ctx.close(); } catch (e) {}
+        }
+      }
+    }
+
+    // Video Generator Engine
+    async function startVideoGeneration() {
+      const themeKey = document.getElementById('themeSelect').value;
+      const durationSec = parseInt(document.getElementById('durationSelect').value, 10);
+      const audioChoice = document.getElementById('audioSelect').value;
+      const currentTheme = themes[themeKey] || themes.obsidian;
+
+      const canvas = document.getElementById('renderCanvas');
+      updateAspectDimensions();
+      const ctx = canvas.getContext('2d');
+
+      const overlay = document.getElementById('renderOverlay');
+      const progressFill = document.getElementById('renderProgressFill');
+      const percentText = document.getElementById('renderPercentText');
+      const statusText = document.getElementById('renderStatusText');
+
+      overlay.classList.add('active');
+      statusText.innerText = "Recording Video Stream...";
+
+      // Setup Audio
+      let audioEngine = null;
+      let combinedStream = null;
+      const canvasStream = canvas.captureStream(60);
+
+      if (audioChoice === 'synth') {
+        audioEngine = new ProceduralAudioEngine();
+        audioEngine.start(124);
+        const audioTrack = audioEngine.dest.stream.getAudioTracks()[0];
+        combinedStream = new MediaStream([...canvasStream.getVideoTracks(), audioTrack]);
+      } else {
+        combinedStream = canvasStream;
+      }
+
+      // MediaRecorder setup
+      let mimeType = 'video/webm;codecs=vp9,opus';
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = 'video/webm';
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = '';
+      }
+
+      const recorder = mimeType ? new MediaRecorder(combinedStream, { mimeType }) : new MediaRecorder(combinedStream);
+      const recordedChunks = [];
+
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) recordedChunks.push(e.data);
+      };
+
+      const recordPromise = new Promise((resolve) => {
+        recorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: 'video/webm' });
+          resolve(blob);
+        };
+      });
+
+      recorder.start();
+
+      // Render Loop Variables
+      const totalFrames = durationSec * 60;
+      let currentFrame = 0;
+      const W = canvas.width;
+      const H = canvas.height;
+      const isVertical = H > W;
+
+      // Particle system
+      const particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          radius: Math.random() * 2.5 + 0.5,
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: Math.random() * 2 + 1,
+          alpha: Math.random() * 0.7 + 0.2
+        });
+      }
+
+      // Scenes distribution (5 scenes)
+      const sceneTimes = [
+        { name: "Hook", start: 0, end: totalFrames * 0.20 },
+        { name: "Product", start: totalFrames * 0.20, end: totalFrames * 0.45 },
+        { name: "Features", start: totalFrames * 0.45, end: totalFrames * 0.70 },
+        { name: "Architecture", start: totalFrames * 0.70, end: totalFrames * 0.88 },
+        { name: "CTA", start: totalFrames * 0.88, end: totalFrames }
+      ];
+
+      return new Promise((resolveAll) => {
+        function renderFrame() {
+          const progress = currentFrame / totalFrames;
+          const currentSec = currentFrame / 60;
+
+          // Update Progress UI
+          progressFill.style.width = `${Math.floor(progress * 100)}%`;
+          percentText.innerText = `${Math.floor(progress * 100)}% (${currentSec.toFixed(1)}s / ${durationSec}s)`;
+
+          // 1. Clear background
+          ctx.fillStyle = currentTheme.bg;
+          ctx.fillRect(0, 0, W, H);
+
+          // 2. Animated grid & particles
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
+          ctx.lineWidth = 1;
+          const gridSize = 60;
+          for (let x = 0; x < W; x += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, H);
+            ctx.stroke();
+          }
+          for (let y = 0; y < H; y += gridSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(W, y);
+            ctx.stroke();
+          }
+
+          particles.forEach(p => {
+            p.y += p.vy;
+            p.x += p.vx;
+            if (p.y > H) p.y = 0;
+            if (p.x > W) p.x = 0;
+            if (p.x < 0) p.x = W;
+
+            ctx.fillStyle = currentTheme.primary;
+            ctx.globalAlpha = p.alpha;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+          });
+
+          // Determine current scene
+          const activeScene = sceneTimes.find(s => currentFrame >= s.start && currentFrame < s.end) || sceneTimes[sceneTimes.length - 1];
+          const sceneProg = (currentFrame - activeScene.start) / (activeScene.end - activeScene.start);
+
+          // Scene Rendering
+          drawSceneContent(ctx, activeScene.name, sceneProg, W, H, isVertical, currentTheme);
+
+          // Top Header Bar
+          drawHeaderBar(ctx, W, currentTheme);
+
+          // Bottom Progress Indicator
+          ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+          ctx.fillRect(40, H - 30, W - 80, 4);
+          ctx.fillStyle = currentTheme.primary;
+          ctx.fillRect(40, H - 30, (W - 80) * progress, 4);
+
+          currentFrame++;
+
+          if (currentFrame <= totalFrames) {
+            requestAnimationFrame(renderFrame);
+          } else {
+            // Stop recording
+            recorder.stop();
+            if (audioEngine) audioEngine.stop();
+
+            recordPromise.then(blob => {
+              state.recordedBlob = blob;
+              if (state.recordedUrl) URL.revokeObjectURL(state.recordedUrl);
+              state.recordedUrl = URL.createObjectURL(blob);
+
+              const videoEl = document.getElementById('outputVideo');
+              const placeholder = document.getElementById('videoPlaceholder');
+              placeholder.style.display = 'none';
+              videoEl.style.display = 'block';
+              videoEl.src = state.recordedUrl;
+              videoEl.load();
+
+              document.getElementById('downloadVideoBtn').disabled = false;
+              document.getElementById('replayBtn').style.display = 'inline-flex';
+              overlay.classList.remove('active');
+              resolveAll();
+            });
+          }
+        }
+
+        renderFrame();
+      });
+    }
+
+    function drawHeaderBar(ctx, W, theme) {
+      ctx.fillStyle = theme.primary;
+      ctx.beginPath();
+      ctx.arc(60, 60, 8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.font = "bold 22px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "left";
+      ctx.fillText("HRL X BRAG", 78, 67);
+
+      ctx.font = "14px 'JetBrains Mono', monospace";
+      ctx.fillStyle = theme.textMuted;
+      ctx.textAlign = "right";
+      ctx.fillText("LAUNCH STUDIO", W - 60, 67);
+    }
+
+    function drawSceneContent(ctx, sceneName, t, W, H, isVertical, theme) {
+      const centerX = W / 2;
+      const centerY = H / 2;
+      const p = state.project;
+
+      // Smooth Ease-in-out curve
+      const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+      if (sceneName === "Hook") {
+        // Scene 1: The Problem Hook
+        const scale = 0.95 + ease * 0.05;
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.scale(scale, scale);
+
+        // Warning Badge
+        ctx.fillStyle = "rgba(239, 68, 68, 0.2)";
+        ctx.strokeStyle = "rgba(239, 68, 68, 0.5)";
+        ctx.lineWidth = 2;
+        roundRect(ctx, -140, isVertical ? -260 : -160, 280, 44, 22, true, true);
+
+        ctx.fillStyle = "#ef4444";
+        ctx.font = "bold 16px 'JetBrains Mono', monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("⚠️ THE LAUNCH DILEMMA", 0, isVertical ? -232 : -132);
+
+        // Hook Text
+        ctx.fillStyle = "#ffffff";
+        ctx.font = isVertical ? "800 48px 'Plus Jakarta Sans'" : "800 56px 'Plus Jakarta Sans'";
+        ctx.textAlign = "center";
+        wrapText(ctx, p.hook, 0, isVertical ? -120 : -50, isVertical ? W * 0.85 : W * 0.75, isVertical ? 62 : 70);
+
+        ctx.restore();
+      } else if (sceneName === "Product") {
+        // Scene 2: Product Reveal
+        ctx.save();
+        ctx.translate(centerX, centerY);
+
+        // Glow ring
+        ctx.strokeStyle = theme.glow;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(0, isVertical ? -180 : -100, 70 + t * 20, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Product Logo icon box
+        ctx.fillStyle = theme.primary;
+        roundRect(ctx, -50, isVertical ? -230 : -150, 100, 100, 24, true, false);
+
+        ctx.fillStyle = "#000000";
+        ctx.font = "800 44px 'Plus Jakarta Sans'";
+        ctx.textAlign = "center";
+        ctx.fillText(p.name.charAt(0).toUpperCase(), 0, isVertical ? -165 : -85);
+
+        // Title
+        ctx.fillStyle = "#ffffff";
+        ctx.font = isVertical ? "800 54px 'Plus Jakarta Sans'" : "800 68px 'Plus Jakarta Sans'";
+        ctx.fillText(p.name, 0, isVertical ? -60 : 0);
+
+        // Tagline
+        ctx.fillStyle = theme.textMuted;
+        ctx.font = isVertical ? "500 24px 'Plus Jakarta Sans'" : "500 28px 'Plus Jakarta Sans'";
+        wrapText(ctx, p.tagline, 0, isVertical ? 20 : 60, isVertical ? W * 0.82 : W * 0.75, 36);
+
+        ctx.restore();
+      } else if (sceneName === "Features") {
+        // Scene 3: Core Pillars
+        ctx.save();
+        ctx.translate(centerX, isVertical ? centerY - 140 : centerY - 120);
+
+        ctx.fillStyle = theme.primary;
+        ctx.font = "bold 18px 'JetBrains Mono', monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("CORE CAPABILITIES", 0, -100);
+
+        const cardW = isVertical ? W * 0.86 : W * 0.72;
+        const cardH = 80;
+        const spacing = 96;
+
+        p.features.slice(0, 3).forEach((feat, idx) => {
+          const cardY = idx * spacing;
+          const slideOffset = Math.max(0, (1 - t * 1.5 - idx * 0.15)) * 100;
+
+          ctx.fillStyle = theme.cardBg;
+          ctx.strokeStyle = theme.glow;
+          ctx.lineWidth = 1.5;
+          roundRect(ctx, -cardW / 2 + slideOffset, cardY, cardW, cardH, 16, true, true);
+
+          // Number indicator
+          ctx.fillStyle = theme.primary;
+          ctx.font = "bold 20px 'JetBrains Mono', monospace";
+          ctx.textAlign = "left";
+          ctx.fillText(`0${idx + 1}`, -cardW / 2 + 24 + slideOffset, cardY + 48);
+
+          // Feature text
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "600 20px 'Plus Jakarta Sans'";
+          ctx.fillText(feat, -cardW / 2 + 75 + slideOffset, cardY + 48);
+        });
+
+        ctx.restore();
+      } else if (sceneName === "Architecture") {
+        // Scene 4: Tech Stack
+        ctx.save();
+        ctx.translate(centerX, centerY);
+
+        ctx.fillStyle = theme.primary;
+        ctx.font = "bold 18px 'JetBrains Mono', monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("TECH STACK & ARCHITECTURE", 0, isVertical ? -180 : -130);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = isVertical ? "800 42px 'Plus Jakarta Sans'" : "800 52px 'Plus Jakarta Sans'";
+        ctx.fillText("Engineered for Scalability", 0, isVertical ? -120 : -70);
+
+        // Tech Pills
+        const pills = p.tech;
+        const totalW = pills.length * 160;
+        let startX = -totalW / 2;
+
+        pills.forEach((tech, i) => {
+          const pillX = startX + i * 160;
+          const pillY = isVertical ? -20 + (i % 2) * 80 : 20;
+
+          ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
+          ctx.strokeStyle = theme.glow;
+          ctx.lineWidth = 1;
+          roundRect(ctx, pillX, pillY, 140, 52, 26, true, true);
+
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "bold 16px 'JetBrains Mono', monospace";
+          ctx.textAlign = "center";
+          ctx.fillText(tech, pillX + 70, pillY + 32);
+        });
+
+        ctx.restore();
+      } else if (sceneName === "CTA") {
+        // Scene 5: Launch CTA
+        ctx.save();
+        ctx.translate(centerX, centerY);
+
+        ctx.fillStyle = theme.primary;
+        roundRect(ctx, -120, isVertical ? -220 : -150, 240, 44, 22, true, false);
+
+        ctx.fillStyle = "#000000";
+        ctx.font = "bold 16px 'JetBrains Mono', monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("🚀 READY TO DEPLOY", 0, isVertical ? -192 : -122);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = isVertical ? "800 48px 'Plus Jakarta Sans'" : "800 56px 'Plus Jakarta Sans'";
+        ctx.fillText("Star & Fork on GitHub", 0, isVertical ? -100 : -40);
+
+        // Link Box
+        const linkW = isVertical ? W * 0.86 : W * 0.65;
+        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+        ctx.strokeStyle = theme.primary;
+        ctx.lineWidth = 2;
+        roundRect(ctx, -linkW / 2, isVertical ? -20 : 30, linkW, 70, 18, true, true);
+
+        ctx.fillStyle = theme.primary;
+        ctx.font = "bold 20px 'JetBrains Mono', monospace";
+        ctx.fillText(p.url.replace(/^https?:\/\//, ''), 0, isVertical ? 22 : 72);
+
+        ctx.restore();
+      }
+    }
+
+    // Helper functions for Canvas
+    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      if (fill) ctx.fill();
+      if (stroke) ctx.stroke();
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      let line = '';
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line.trim(), x, y);
+          line = words[n] + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line.trim(), x, y);
+    }
+
+    function downloadGeneratedVideo() {
+      if (!state.recordedBlob) return;
+      const a = document.createElement('a');
+      a.href = state.recordedUrl;
+      const cleanName = state.project.name.toLowerCase().replace(/[^a-z0-9_-]/g, '-');
+      a.download = `${cleanName}-launch-video.webm`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function replayVideo() {
+      const video = document.getElementById('outputVideo');
+      video.currentTime = 0;
+      video.play();
+    }
+
+    // Initial load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateUIFromState();
+    });
+  </script>
+</body>
+</html>
